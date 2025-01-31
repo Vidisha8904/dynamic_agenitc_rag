@@ -2,15 +2,12 @@
 import chromadb
 from chromadb.config import Settings
 
-
 def get_chroma_client():
-    return chromadb.PersistentClient(
-        path="./chroma_db",
+    return chromadb.Client(
         settings=Settings(
-            allow_reset=True, anonymized_telemetry=False, is_persistent=True
-        ),
+            allow_reset=True, anonymized_telemetry=False
+        )
     )
-
 
 def init_collection():
     client = get_chroma_client()
